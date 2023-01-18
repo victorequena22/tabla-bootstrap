@@ -87,5 +87,3 @@ export default class CardBuscador extends Tabla {
     this.set()
   }
 }
-
-export const EstadoNull = { status: 1, hora: 'CARGADO DESDE CACHE' }
