@@ -1,7 +1,7 @@
 import { InputText } from 'component-bootstrap'
 import React from 'react'
 import { Button, InputGroup } from 'react-bootstrap'
-import { fechaToNumber, formatoFecha, zfill } from 'utiles'
+import { fechaToNumber, formatoFecha, zfill, busqueda, ordenar } from 'utiles'
 import Body from './Body'
 import Th from './Th'
 interface State {
@@ -17,6 +17,7 @@ interface State {
 
 export default class Tabla<p = any> extends React.Component<p, State> {
   buscarEn: string[] = []
+  fechas: string[] = []
   buscarLabel = 'BUSCAR'
   col = 8
   mostar = 7
@@ -93,58 +94,11 @@ export default class Tabla<p = any> extends React.Component<p, State> {
     return this.ordenar()
   }
   busqueda() {
-    const {
-      state: { buscar },
-      buscarEn,
-    } = this
-    if (buscar !== '') {
-      return this.getItens().filter((iten) => {
-        const en = buscar.split(' ')
-        let pasa = false
-        buscarEn.forEach((label) => {
-          let considencias = 0
-          en.forEach((e) => {
-            if (label === 'fecha') {
-              if (formatoFecha(iten[label]).indexOf(e) > -1) {
-                considencias++
-              }
-            } else if (isNaN(iten[label])) {
-              if (iten[label].toUpperCase().indexOf(e) > -1) {
-                considencias++
-              }
-            } else {
-              if (zfill(parseFloat(iten[label])).indexOf(e) > -1) {
-                considencias++
-              }
-            }
-          })
-          if (en.length === considencias) {
-            pasa = true
-          }
-        })
-        return pasa
-      })
-    }
-    return this.getItens()
+    const { state: { buscar }, buscarEn, fechas } = this
+    return busqueda(this.getItens(), buscar, buscarEn, fechas);
   }
   ordenar() {
-    const {
-      state: { by, orden },
-      busqueda,
-    } = this
-    return busqueda().sort((a: any, b: any) => {
-      if (by === 'fecha') {
-        const fa = fechaToNumber(a.fecha),
-          fb = fechaToNumber(b.fecha)
-        if (orden === 'desc') return fb < fa ? -1 : fb > fa ? 1 : 0
-        else return fa < fb ? -1 : fa > fb ? 1 : 0
-      } else if (isNaN(b[by])) {
-        if (orden === 'desc') return a[by] < b[by] ? -1 : a[by] > b[by] ? 1 : 0
-        else return b[by] < a[by] ? -1 : b[by] > a[by] ? 1 : 0
-      } else {
-        if (orden === 'desc') return b[by] - a[by]
-        else return a[by] - b[by]
-      }
-    })
+    const { state: { by, orden }, busqueda, fechas } = this
+    return ordenar(busqueda(), by, orden, fechas);
   }
 }

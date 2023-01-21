@@ -19,28 +19,21 @@ export default class ModalBusqueda<p = {}> extends Tabla<Props & p> {
     return <></>
   }
   render() {
-    const {
-      Body,
-      Buscador,
-      Title,
-      props: { open, close },
-    } = this
-    return (
-      <Modal show={open} onHide={close} size='xl'>
-        <Modal.Header className={this.variant} closeButton>
-          <Title />
-        </Modal.Header>
-        <Modal.Body>
-          <div style={{ padding: '10px 10px 10px 10px', overflowX: 'scroll' }}>
-            <Buscador />
-            <Body />
-          </div>
-        </Modal.Body>
-      </Modal>
-    )
+    const { Body, Buscador, Title, props: { open, close }, } = this
+    return (<Modal show={open} onHide={close} size='xl'>
+      <Modal.Header className={this.variant} closeButton>
+        <Title />
+      </Modal.Header>
+      <Modal.Body>
+        <div style={{ padding: '10px 10px 10px 10px', overflowX: 'scroll' }}>
+          <Buscador />
+          <Body />
+        </div>
+      </Modal.Body>
+    </Modal>)
   }
-  reset() {}
-  set() {}
+  reset() { }
+  set() { }
   componentDidMount() {
     this.set()
   }
