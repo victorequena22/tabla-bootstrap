@@ -31,15 +31,13 @@
   "author": "Victor Requena",
   "license": "ISC",
   "devDependencies": {
+    "component-bootstrap": "https://github.com/victorequena22/component-bootstrap.git",
+    "utiles": "https://github.com/victorequena22/utiles.git",
     "@types/react": "^18.0.12",
     "@types/react-bootstrap": "^0.32.25",
-    "component-bootstrap": "https://github.com/victorequena22/component-bootstrap.git",
-    "prettier": "^2.6.2",
     "react": "^18.1.0",
     "react-bootstrap": "^1.6.0",
-    "react-dom": "^18.1.0",
-    "typescript": "^4.7.3",
-    "utiles": "https://github.com/victorequena22/utiles.git"
+    "typescript": "^4.7.3"
   },
   "dependencies": {
     "tslib": "^2.4.1"

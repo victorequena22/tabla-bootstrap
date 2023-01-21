@@ -1,5 +1,4 @@
-import { InputText } from 'component-bootstrap'
-import { Col, Card, Row, Button, InputGroup, Accordion } from 'react-bootstrap'
+import { Col, Card, Row, Button, Accordion } from 'react-bootstrap'
 import React from 'react'
 import CardBuscador from './Card'
 export default class AvanzadoBuscador extends CardBuscador {

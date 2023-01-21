@@ -1,14 +1,14 @@
 import { InputText } from 'component-bootstrap'
 import React from 'react'
 import { Button, InputGroup } from 'react-bootstrap'
-import { fechaToNumber, formatoFecha, zfill, busqueda, ordenar } from 'utiles'
+import { busqueda, ordenar } from 'utiles'
 import Body from './Body'
 import Th from './Th'
 interface State {
   itens: any[]
   buscar: string
   by: string
-  orden: string
+  orden:  'desc' | 'asc'
   modal: boolean
   open: boolean
   aux: boolean
