@@ -1,5 +1,5 @@
 import Tabla from '../Tabla'
-import { InputText } from 'component-bootstrap'
+import { InputText } from '@victorequena22/component-bootstrap'
 import { Col, Card, Row, Button, InputGroup } from 'react-bootstrap'
 import React from 'react'
 export default class CardBuscador extends Tabla {

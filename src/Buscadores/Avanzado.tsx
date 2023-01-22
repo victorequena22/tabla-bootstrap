@@ -1,4 +1,4 @@
-import { InputText } from 'component-bootstrap'
+import { InputText } from '@victorequena22/component-bootstrap'
 import { Col, Card, Row, Button, InputGroup, Accordion } from 'react-bootstrap'
 import React from 'react'
 import CardBuscador from './Card'

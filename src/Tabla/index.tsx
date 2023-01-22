@@ -1,7 +1,7 @@
-import { InputText } from 'component-bootstrap'
+import { InputText } from '@victorequena22/component-bootstrap'
 import React from 'react'
 import { Button, InputGroup } from 'react-bootstrap'
-import { busqueda, ordenar } from 'utiles'
+import { busqueda, ordenar } from '@victorequena22/utiles'
 import Body from './Body'
 import Th from './Th'
 interface State {
