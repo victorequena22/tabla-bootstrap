@@ -1,7 +1,7 @@
 import { Col, Card, Row, Button, Accordion } from 'react-bootstrap'
 import React from 'react'
 import CardBuscador from './Card'
-export default class AvanzadoBuscador extends CardBuscador {
+export default class CardBuscadorAvanzadoLateral<p = {}> extends CardBuscador<p> {
   permiso = ''
   constructor(p: any) {
     super(p)

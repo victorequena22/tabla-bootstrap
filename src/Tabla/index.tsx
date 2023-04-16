@@ -26,7 +26,7 @@ export default class Tabla<p = any> extends React.Component<p, State> {
     this.state = {
       itens: [],
       buscar: '',
-      by: 'codigo',
+      by: 'id',
       orden: 'desc',
       modal: false,
       open: false,
@@ -47,7 +47,7 @@ export default class Tabla<p = any> extends React.Component<p, State> {
         <InputGroup.Prepend>
           <InputGroup.Text>{this.buscarLabel}</InputGroup.Text>
         </InputGroup.Prepend>
-        <InputText className='form-control' upper setData={this.setState} update='buscar' value={this.state.buscar} />
+        <InputText name='buscar' className='form-control' upper setData={this.setState} update='buscar' value={this.state.buscar} />
         <InputGroup.Append>
           <Button variant='primary'>
             <span className='fa fa-search'></span> BUSCAR

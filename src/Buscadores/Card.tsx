@@ -2,7 +2,7 @@ import Tabla from '../Tabla'
 import { InputText } from '@victorequena22/component-bootstrap'
 import { Col, Card, Row, Button, InputGroup } from 'react-bootstrap'
 import React from 'react'
-export default class CardBuscador extends Tabla {
+export default class CardBuscador<p = {}> extends Tabla<p> {
   permiso = ''
   constructor(p: any) {
     super(p)
@@ -47,7 +47,7 @@ export default class CardBuscador extends Tabla {
             <InputGroup.Prepend>
               <InputGroup.Text>{this.buscarLabel}</InputGroup.Text>
             </InputGroup.Prepend>
-            <InputText upper setData={this.setState} update='buscar' value={this.state.buscar} />
+            <InputText name='buscar' upper setData={this.setState} update='buscar' value={this.state.buscar} />
             <InputGroup.Append>
               <Button variant='primary'>
                 <i className='fa fa-search'></i> BUSCAR

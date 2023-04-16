@@ -2,7 +2,7 @@ import { InputText } from '@victorequena22/component-bootstrap'
 import { Col, Card, Row, Button, InputGroup, Accordion } from 'react-bootstrap'
 import React from 'react'
 import CardBuscador from './Card'
-export default class AvanzadoBuscador extends CardBuscador {
+export default class CardBuscadorAvanzado<p = {}> extends CardBuscador<p> {
   permiso = ''
   constructor(p: any) {
     super(p)
@@ -42,7 +42,7 @@ export default class AvanzadoBuscador extends CardBuscador {
             <InputGroup.Prepend>
               <InputGroup.Text>{this.buscarLabel}</InputGroup.Text>
             </InputGroup.Prepend>
-            <InputText upper setData={this.setState} update='buscar' value={this.state.buscar} />
+            <InputText name='buscar' upper setData={this.setState} update='buscar' value={this.state.buscar} />
             <InputGroup.Append>
               <Button variant='primary'>
                 <i className='fa fa-search'></i> BUSCAR
