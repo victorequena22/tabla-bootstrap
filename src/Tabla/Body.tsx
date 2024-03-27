@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Table } from 'react-bootstrap'
 import Paginacion from './Paginacion'
 
@@ -17,25 +17,15 @@ export default function Body({ children, col, row, mostrar, itens }: Props) {
       fin = init + mostrar
     return i >= init && i < fin
   }
-  function getRef({ codigo, id, status, estado, estatus }: any) {
-    let key = 'key'
-    if (status) key += status
-    if (estado) key += estado
-    if (estatus) key += estatus
-    if (codigo) key += codigo
-    if (id) key += id
-    if (key === 'key') return key + Math.random()
-    return key
-  }
   function Row(d: any) {
-    return <>{row(d)}</>
+    return useMemo(() => <>{row(d)}</>, Object.values(d))
   }
   function BodyContent() {
     const iten = itens.filter(filter)
     return (
       <>
         {iten.map((it) => (
-          <Row key={getRef(it)} {...it} />
+          <Row key={Object.values(it).join('')} {...it} />
         ))}
       </>
     )
